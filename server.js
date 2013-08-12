@@ -4,11 +4,9 @@ function start(route, handle){
 	function respond(request, response){
 		var pathname = url.parse(request.url).pathname;
 		console.log("Request for " + pathname + " recieved.")
-
-		route(handle, pathname);
-
 		response.writeHead(200, {"content-Type": "text/plain"});
-		response.write("Hello World!");
+		var content = route(handle, pathname);
+		response.write(content);
 		response.end();
 	}
 	http.createServer(respond). listen(8888);
