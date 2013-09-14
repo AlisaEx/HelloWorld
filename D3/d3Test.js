@@ -1,14 +1,41 @@
-var thing = document.getElementById("viz");
-var sampleSVG = d3.select(thing)
-    .append("svg")
-    .attr("width", 100)
-    .attr("height", 100);    
+// var dataset = [],
+//     i = 0;
+    
+// for(i=0; i<5; i++){
+//     dataset.push(Math.round(Math.random()*100));
+// }        
 
-sampleSVG.append("circle")
-    .style("stroke", "gray")
-    .style("fill", "white")
-    .attr("r", 40)
-    .attr("cx", 50)
-    .attr("cy", 50)
-    .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
-    .on("mouseout", function(){d3.select(this).style("fill", "white");});
+// var sampleSVG = d3.select("#viz")
+//     .append("svg")
+//     .attr("width", 400)
+//     .attr("height", 75);    
+    
+// sampleSVG.selectAll("circle")
+//     .data(dataset)
+//     .enter().append("circle")
+//     .style("stroke", "gray")
+//     .style("fill", "white")
+//     .attr("height", 40)
+//     .attr("width", 75)
+//     .attr("x", function(d, i){return i*80})
+//     .attr("y", 20
+$(document).ready(makeRequest);
+
+function makeRequest(){
+    $.ajax({
+        url: "http://localhost:8001",
+        success: function(res){
+            $("#result").html(res);
+        },
+        error: function(err){
+            console.log(err);
+        }
+    })
+};
+
+
+function getNames(res){
+    for (var i=0; i<res.length; i++){
+        
+    }
+}
