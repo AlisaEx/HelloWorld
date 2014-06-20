@@ -25,7 +25,7 @@ function makeRequest(){
     $.ajax({
         url: "http://localhost:8001",
         success: function(res){
-            $("#result").html(res);
+            $('#result').html(res);
         },
         error: function(err){
             console.log(err);
@@ -34,8 +34,9 @@ function makeRequest(){
 };
 
 
-function getNames(res){
-    for (var i=0; i<res.length; i++){
-        
-    }
-}
+function addBreaks(obj){
+	console.log(obj);
+	// var pattern = pattern = /"name":"(\w+)\",$/;
+	// var names = string.split(pattern);
+	$("#result").html(obj[1]);
+};

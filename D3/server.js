@@ -2,26 +2,40 @@ var http	= require("http");
 // var url 		= require("url");
 var request = require("superagent");
 
+var root = "http://ws.audioscrobbler.com/2.0/?"
+var method = "user.gettopartists";
+var user = "alisatrocity";
+var period = "overall";
+var apikey = "8148fb40ef9511752203d2c4591e63d0";
+
 
 function onRequest(req, res){
-	var api = "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=alisatrocity&api_key=8148fb40ef9511752203d2c4591e63d0&format=json";
+	var api = root + "method=" + method + 
+					"&user=" + user + 
+					"&api_key=" + apikey + 
+					"&format=json";
 	console.log("Request recieved.");
 	request
 		.get(api)
 		.end(function(err, response){
+			console.log("Sending request");
 			if(err){
 				console.log(err);
 			}
 			if(response.error){
 				console.log(response.err);
 			}
+			// console.log(response.body.artist.name);
+			var artists = JSON.stringify(response.body.topartists.artist);
+			// console.log(artists);
 		var headers = {
           "Content-Type": "text/plain",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "X-Requested-With"
         }
         res.writeHead(200, headers);
-        res.end(JSON.stringify(response.body.topalbums.album));
+        res.end(artists);
+        console.log("Response Sent.")
 		});
 }
 
