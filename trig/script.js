@@ -21,7 +21,7 @@
       easing = 'none';
     }
     startTime = Date.now();
-    endTime = startTime + 2000;
+    endTime = startTime + 3000;
     startX = $('#animate').offset().left;
     endX = startX + $('#animate').width() - element.width();
     return intervalID = setInterval(function() {
