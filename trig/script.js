@@ -31,8 +31,7 @@
         currentTime = endTime;
       }
       progress = (currentTime - startTime) / (endTime - startTime);
-      progress = ease(progress, easing);
-      currentX = progress * (endX - startX);
+      currentX = ease(progress, easing) * (endX - startX);
       element.css({
         left: currentX
       });
