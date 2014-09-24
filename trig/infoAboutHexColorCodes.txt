@@ -1,0 +1,9 @@
+#000000 -> black
+#ff0000 -> red
+#00ff00 -> lime green
+#0000ff -> blue
+#ffffff -> white
+
+
+0 is the lowest value
+f is the highest
